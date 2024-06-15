@@ -85,6 +85,7 @@ export const HotelsCard = () => {
     wait()
     }, [])  
 
+    
 
     return (<>
         <div style={{display:"flex" , padding: "10px",height:"78vh",overflow:"scroll"}}>
