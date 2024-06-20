@@ -80,18 +80,18 @@ export const HotelsCard = () => {
             fetch("http://localhost:8080/api/hotels/getHotels")
             .then(res => res.json())
             .then(data => setHotelsData(data))
-        });
+        }, 0);
     }
     wait()
     }, [])  
 
-    
+
 
     return (<>
         <div style={{display:"flex" , padding: "10px",height:"78vh",overflow:"scroll"}}>
         {hotelsData &&
             hotelsData.map((data , index) => (
-                <div key={index} style={{boxShadow:"0px 0px 10px black", borderRadius:"12px", content:"contents",height:"full" }}>
+                <div key={index} style={{boxShadow:"0px 0px 10px black", borderRadius:"12px", content:"contents",height:"15vh" }}>
                     <ErrorBoundary fallback={
                     <div style={{width : "250px" , height : "250px", border : "1px solid",borderTopLeftRadius:"20px",borderTopRightRadius:"20px"}}>
                         <p>error</p>

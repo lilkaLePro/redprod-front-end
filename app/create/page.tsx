@@ -47,6 +47,13 @@ const Select = styled.select`
     font-weight : bold;
     border-radius : 5px
 `
+
+type FormChampProps = {
+    label : string, type : string , id : string
+    value : number | string , onchange : (e : ChangeEvent<HTMLInputElement>) => void;
+}
+
+  
 interface Value {
     hotelName : string, adresse : string,
     price : string , email : string , tel : string,
@@ -102,16 +109,16 @@ return (
                     <Link href="/dashboard/listehotels" ><ArrowLeftIcon /></Link> Enregistrer un nouvel hotel </p>
                 <div style={{display : 'flex' , gap: '50px'}}>
                     <div style={{display : 'flex', flexDirection : 'column', gap : '20px'}}>
-                        <Champ label="Hôtel" type="text" id="hotelName" value={value.hotelName} 
+                        <FormChamp label="Hôtel" type="text" id="hotelName" value={value.hotelName} 
                             onchange={handleChange}/>
-                        <Champ label="E-mail" type="e-mail" id="email" value={value.email} 
+                        <FormChamp label="E-mail" type="email" id="email" value={value.email} 
                             onchange={handleChange}/>
-                        <Champ label="prix par nuit" type="text" id="price" value={value.price} 
+                        <FormChamp label="prix par nuit" type="text" id="price" value={value.price} 
                             onchange={handleChange}/>
                     </div>
                     <div style={{display : 'flex', flexDirection : 'column', gap : '20px'}}>
-                        <Champ label="Adress" type="text" id="adresse" value={value.adresse} onchange={handleChange}/>
-                        <Champ label="telephone" type="text" id="tel" value={value.tel} onchange={handleChange}/>
+                        <FormChamp label="Adress" type="text" id="adresse" value={value.adresse} onchange={handleChange}/>
+                        <FormChamp label="telephone" type="number" id="tel" value={value.tel} onchange={handleChange}/>
                         <div style={{display : 'flex' , flexDirection : 'column', gap : '4px'}}>
                             <Label htmlFor='devise'>Devise</Label>
                             <Select  id="currency" value={curr} onChange={((e : ChangeEvent<HTMLSelectElement> ) => {setCurr(e.target.value)})}>
@@ -137,10 +144,7 @@ return (
 }
 
 
-export const Champ = ({label , type , id , value , onchange } : {
-    label : string, type : string , id : string
-    value : string | number , onchange : (e : ChangeEvent<HTMLInputElement>) => void;
-}) => {
+export const FormChamp  : React.FC<FormChampProps> = ({label , type , id , value , onchange }) =>{
     return (
         <div style={{display : 'flex' , flexDirection : 'column', gap : '4px'}}>
             <Label htmlFor={id}>{label} </Label>

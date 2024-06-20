@@ -7,6 +7,7 @@ import styled from "styled-components"
 import axios from 'axios'
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import toast from "react-hot-toast"
 
 const Main = styled.main `
   display: flex;
@@ -38,10 +39,15 @@ const Form = styled.form `
 const Label = styled.label `
   color : #494C4F;
 `
+type Data = {
+  userName : string ,
+  email : string,
+  password : string,
+}
 
 export default function Page() {
-  const [checked , setchecked] = useState(false)
-  const [data , setData] = useState({
+  const [checked , setchecked] = useState<boolean>(false)
+  const [data , setData] = useState<Data>({
     userName : "",
     email : "",
     password : ""
@@ -52,17 +58,16 @@ const handleChange = (e : ChangeEvent<HTMLInputElement>) => {
   setData({...data , [input.name]: input.value})
 }
 
-const handleSubmit = (e : FormEvent<HTMLFormElement>) => {
+const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    axios.post('http://localhost:8080/api/auths/create' , {
-      headers : {
-        "Content-type" : "Aplication/json",
-      },
-      body : JSON.stringify(data)
-    })
-    .then(res => console.log(data))
-    .catch(err => console.error("Error : " , err) )
 
+    await axios.post('http://localhost:8080/api/auths/create', data , {
+      // headers : {},
+      withCredentials : true
+
+    }).then(res => console.log('user created' , data))
+
+  }
     return (
         <Main>
             <div>
@@ -95,4 +100,4 @@ const handleSubmit = (e : FormEvent<HTMLFormElement>) => {
             </div>
         </Main>
     )
-}}
+}

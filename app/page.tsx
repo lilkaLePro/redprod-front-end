@@ -6,6 +6,10 @@ import { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { Toast, Toaster } from "react-hot-toast";
+
+axios.defaults.baseURL = "http://localhost:8080";
+axios.defaults.withCredentials = true
 
 const Main = styled.main `
   display: flex;
@@ -62,7 +66,7 @@ export default function Home() {
   const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    axios.post('http://localhost:8080/api/auths/connect/email' , data , {
+    axios.post('http://localhost:8080/api/auths/connect' , data , {
       headers : {'Content-Type': 'application/json', "Accept" : "aplication/json" },
       "withCredentials" : true
     })
@@ -73,7 +77,7 @@ export default function Home() {
 
   return (
     <Main>
-
+      <Toaster position='bottom-center' toastOptions={{duration : 2000}} />
       <Wrapper>
       <div style={{display : 'flex' , alignItems : 'center' , marginBottom : '20px' , gap :'10px',color : '#F8F8F8',justifyContent:'center' }}>
         <Image src={'/redLogo.png'} alt="logo redproduction" width={40} height={40} />
