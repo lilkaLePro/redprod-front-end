@@ -54,7 +54,9 @@ export default function Home() {
     email : "",
     password : ""
   })
+  const [token , setToken ] = useState(null)
   const [checked , setchecked ] = useState((false))
+  
   const handleChange = (e : ChangeEvent<HTMLInputElement>) => {
     const input = e.target;
     setData({...data , [input.name]: input.value})
@@ -66,13 +68,25 @@ export default function Home() {
   const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    axios.post('http://localhost:8080/api/auths/connect' , data , {
-      headers : {'Content-Type': 'application/json', "Accept" : "aplication/json" },
+    try {
+      
+    const response = await axios.post('http://localhost:8080/api/auths/connect' , data , {
+      headers : {
+        'Content-Type' : 'application/json'
+      },
       "withCredentials" : true
     })
-    // .then(res => console.log("cors resolue" , data) )
-    .then(res => router.push('/dashboard') )
-    .catch(err => console.log(err , "peu pas conecter"))
+    const token = response.data.token;
+    setToken(token)
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    
+    router.push('/dashboard')
+    // .then(res => setToken(token) )
+    // .then(res => router.push('/dashboard') )
+    // .catch(err => console.log(err , "peu pas conecter"))
+  } catch (error) {
+      console.log(error , 'connection impossible')
+  }
   }
 
   return (

@@ -65,7 +65,9 @@ const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
       // headers : {},
       withCredentials : true
 
-    }).then(res => console.log('user created' , data))
+    })
+    .then(res => console.log('user created' , data))
+    .then(res => router.back() )
 
   }
     return (
