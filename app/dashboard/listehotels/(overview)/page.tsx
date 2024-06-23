@@ -69,7 +69,7 @@ export default function Page() {
     )
 }
 
-export const HotelsCard = () => {
+const HotelsCard = () => {
     
     const [hotelsData , setHotelsData ] = useState<HotelsData[]>()
 

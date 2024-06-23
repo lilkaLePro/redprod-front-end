@@ -144,7 +144,7 @@ return (
 }
 
 
-export const FormChamp  : React.FC<FormChampProps> = ({label , type , id , value , onchange }) =>{
+const FormChamp  : React.FC<FormChampProps> = ({label , type , id , value , onchange }) =>{
     return (
         <div style={{display : 'flex' , flexDirection : 'column', gap : '4px'}}>
             <Label htmlFor={id}>{label} </Label>
