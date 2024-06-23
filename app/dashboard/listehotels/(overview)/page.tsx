@@ -104,7 +104,7 @@ const HotelsCard = () => {
                     <div style={{padding : "10px"}}>
                         <p style={{fontSize : "12px" , color : "darkred"}}>{data.adresse} </p>
                         <p style={{fontWeight : "bold" , fontSize:"16px"}}>{data.hotelName} </p>
-                        <p style={{fontSize : "10px", padding:"10px 0px",fontWeight:"bold"}}>{data.price}{data.currency} par nuit </p>
+                        <p style={{fontSize : "10px", padding:"10px 0px",fontWeight:"bolder"}}>{data.price}{data.currency} par nuit </p>
                     </div>
                 </div>
                 ))
