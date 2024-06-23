@@ -16,7 +16,7 @@ export default function Loading () {
     <div style={{display : "grid" , gridTemplateColumns: 'auto auto auto auto' }}>
         
         <Card>
-        <div style={{padding : "10px" , background : "#f2f2f2" , borderRadius:"10px",textAlign:"center"}}>
+        <div style={{padding : "10px" , background : "#f2f2f2" , borderRadius:"10px",textAlign:"center", border:"1px solid black"}}>
             <div style={{display : "flex", gap : "15px" , alignItems : "center",paddingBottom : "5px" }} ><span></span> </div>
             <span style={{color : "#f2f2f2",background:"gray",padding:"2px 7px",borderRadius:"20px",fontWeight:"bolder"}}></span>
         </div>
