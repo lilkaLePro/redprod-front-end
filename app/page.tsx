@@ -70,7 +70,7 @@ export default function Home() {
 
     try {
       
-    const response = await axios.post('http://localhost:8080/api/auths/connect' , data , {
+    const response = await axios.post('https://redprod-api.onrender.com/api/auths/connect' , data , {
       headers : {
         'Content-Type' : 'application/json'
       },

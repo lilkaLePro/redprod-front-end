@@ -92,7 +92,7 @@ export default function Page () {
             
             console.log(image)
             
-            axios.post(`${api}/hotels/create` , formData , {
+            axios.post(`https://redprod-api.onrender.com/api/hotels/create` , formData , {
                 headers : {
                     "Content-Type" : "multipart/form-data",
                     },

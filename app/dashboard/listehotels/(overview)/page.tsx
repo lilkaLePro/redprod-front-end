@@ -11,7 +11,6 @@ import Loading from "../../(overview)/Loading"
 import imgLoader from '../../../../utils/imgloader'
 import api from "@/utils/baseUrl"
 
-
 const P = styled.p`
     font-size : 25px;
     font-weight : 300;
@@ -78,7 +77,7 @@ const HotelsCard = () => {
     
     const wait = () => {
         setTimeout(() => {
-            fetch(`${api}/hotels/getHotels`)
+            fetch(`https://redprod-api.onrender.com/api/hotels/getHotels`)
             .then(res => res.json())
             .then(data => setHotelsData(data))
         }, 0);
