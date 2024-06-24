@@ -8,8 +8,6 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Toast, Toaster } from "react-hot-toast";
 
-axios.defaults.baseURL = "http://localhost:8080";
-axios.defaults.withCredentials = true
 
 const Main = styled.main `
   display: flex;
