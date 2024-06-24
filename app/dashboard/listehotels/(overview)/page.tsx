@@ -9,6 +9,7 @@ import styled from "styled-components"
 import { ErrorBoundary } from "react-error-boundary"
 import Loading from "../../(overview)/Loading"
 import imgLoader from '../../../../utils/imgloader'
+import api from "@/utils/baseUrl"
 
 
 const P = styled.p`
@@ -77,7 +78,7 @@ const HotelsCard = () => {
     
     const wait = () => {
         setTimeout(() => {
-            fetch("http://localhost:8080/api/hotels/getHotels")
+            fetch(`${api}/hotels/getHotels`)
             .then(res => res.json())
             .then(data => setHotelsData(data))
         }, 0);
