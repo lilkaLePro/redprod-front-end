@@ -1,7 +1,7 @@
 {
   "name": "front",
   "version": "0.1.0",
-  "proxy": "",
+  "proxy": "http://localhost:400",
   "private": true,
   "scripts": {
     "dev": "next dev",
