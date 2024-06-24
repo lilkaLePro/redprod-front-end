@@ -76,6 +76,7 @@ export default function Home() {
       },
       "withCredentials" : true
     })
+
     const token = response.data.token;
     setToken(token)
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
