@@ -61,7 +61,7 @@ const handleChange = (e : ChangeEvent<HTMLInputElement>) => {
 const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    await axios.post('http://localhost:8080/api/auths/create', data , {
+    await axios.post('https://redprod-api.onrender.com/api/auths/create', data , {
       // headers : {},
       withCredentials : true
 
