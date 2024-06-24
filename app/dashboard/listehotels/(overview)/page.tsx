@@ -1,7 +1,7 @@
 'use client'
 import { HotelsData } from "@/utils/definitions"
 import axios from "axios"
-import { Bell, Delete, LogOut, Pen, Plus, Search } from "lucide-react"
+import { Bell, LogOut, Plus, Search } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Suspense, useEffect, useState } from "react"
@@ -85,10 +85,7 @@ const HotelsCard = () => {
     wait()
     }, [])  
 
-const handleDelete = async () => {
-    await axios.delete(`https://redprod-api.onrender.com/api/hotels/delete/${id}`)
-    .then(res => res.json())
-}
+
 
     return (<>
         <div style={{display:"flex" , padding: "10px",height:"78vh",overflow:"scroll"}}>
@@ -108,11 +105,6 @@ const handleDelete = async () => {
                         <p style={{fontSize : "12px" , color : "darkred"}}>{data.adresse} </p>
                         <p style={{fontWeight : "bold" , fontSize:"16px"}}>{data.hotelName} </p>
                         <p style={{fontSize : "10px", padding:"10px 0px",fontWeight:"bolder"}}>{data.price}{data.currency} par nuit </p>
-                    </div>
-                    <div>
-                        <button onClick={handleDelete}>
-                            <Delete />
-                        </button>
                     </div>
                 </div>
                 ))
