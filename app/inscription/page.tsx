@@ -68,7 +68,6 @@ const handleSubmit = async (e : FormEvent<HTMLFormElement>) => {
     })
     .then(res => console.log('user created' , data))
     .then(res => router.back() )
-    console.log(data.userName)
   }
     return (
         <Main>
