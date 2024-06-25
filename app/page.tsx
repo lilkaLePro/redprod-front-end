@@ -79,6 +79,7 @@ export default function Home() {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     
     router.push('/dashboard')
+
     // .then(res => setToken(token) )
     // .then(res => router.push('/dashboard') )
     // .catch(err => console.log(err , "peu pas conecter"))
