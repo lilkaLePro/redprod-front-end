@@ -6,6 +6,7 @@ import { ChangeEvent,  useState } from "react"
 import styled from "styled-components"
 import axios from "axios"
 import { useRouter } from "next/navigation"
+import api from "@/utils/baseUrl"
 
 const Main = styled.main `
   display: flex;
@@ -101,6 +102,7 @@ export default function Page () {
             .then(res => router.back())
             .catch(error => console.log("y'a eu ereur a la soumition de donné " , error))
             })
+            console.log(api)
 return (
         <Main>
             <Form onSubmit={handleSubmit}>
