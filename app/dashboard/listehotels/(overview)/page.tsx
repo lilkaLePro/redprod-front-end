@@ -69,9 +69,7 @@ export default function Page() {
     )
 }
 
-const handleDelete = async ({hotelId} : {hotelId : any}) =>  {
-    await axios.delete(`https://redprod-api.onrender.com/api/hotels/delete/${hotelId}`)
-}
+
 const HotelsCard = () => {
 
     const [hotelsData , setHotelsData ] = useState<HotelsData[]>()
@@ -108,9 +106,6 @@ const HotelsCard = () => {
                         <p style={{fontSize : "12px" , color : "darkred"}}>{data.adresse} </p>
                         <p style={{fontWeight : "bold" , fontSize:"16px"}}>{data.hotelName} </p>
                         <p style={{fontSize : "10px", padding:"10px 0px",fontWeight:"bolder"}}>{data.price}{data.currency} par nuit </p>
-                        <button onClick={handleDelete}>
-                            <Trash />
-                        </button>
                     </div>
                 </div>
                 ))
